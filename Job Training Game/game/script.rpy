@@ -20,13 +20,13 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show zilang normal at right
+    show zilang normall
 
     # These display lines of dialogue.
 
     e "Hi there I don't know what I'm doing here."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e "I guess I'll think of something to do"
+    e "Nevermind bye."
 
     # This ends the game.
 
