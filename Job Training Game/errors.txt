@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 18: expected statement.
-    zoom 0.5
-          ^
+File "game/script.rpy", line 7: invalid syntax
+    Position(xalign 0.85)
+                     ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Tue Oct 29 02:44:55 2024
+Wed Nov 13 03:05:32 2024
