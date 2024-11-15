@@ -4,7 +4,7 @@
 # name of the character.
 
 define e = Character("Zilang")
-define rightish = Position(xalign=0.85)
+define right85 = Position(xalign=0.85)
 
 # The game starts here.
 
@@ -19,7 +19,7 @@ label start:
 
     "Failure to comply with these standards could jeopardize not only your role but also the lives of our agents, our allies, and the people we serve."
 
-    show zilang normal at rightish
+    show zilang normal at right85
 
     "In this training simulation, you will assume the role of one of our esteemed field agents, Zilang, who is tasked with balancing the physical and digital aspects of animal containment and information security."
 
@@ -31,7 +31,7 @@ label zilangintro:
     scene bg breakfast with fade
 
     e "Hi there I don't know what I'm doing here."
-    show zilang normal at rightish
+    show zilang normal at right85
     e "I guess I'll think of something to do"
     e "Nevermind bye."
 
