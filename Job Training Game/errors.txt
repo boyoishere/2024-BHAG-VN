@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 71: show statement expects a non-empty block.
-    show bg office1 with fade:
-                              ^
+The label entrance is defined twice, at File "game/script.rpy", line 57:
+label entrance:
+and File "game/script.rpy", line 99:
+label entrance:
+
+
+The label entrance0 is defined twice, at File "game/script.rpy", line 64:
+    menu entrance0:
+and File "game/script.rpy", line 106:
+    menu entrance0:
+
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Fri Nov 15 02:28:14 2024
+Fri Nov 15 16:31:27 2024
