@@ -32,47 +32,47 @@ label start:
 ################################ 1
 label intro:
     scene bg breakfast with fade
-    "Yawnnn good morning"
+    "[[ZILANG] (Yawning) So early..."
     show zilang normal at right85
-    "Help me pick my breakfast"
+    "What should I eat for breakfast today?"
     menu intro0:
         "2 pieces of animal crackers":
             "Mmm cannibalism!"
         "1 cup of yogurt":
             "So cold..."
     "Well, that's breakfast I guess!"
-    "News start playing on his phone."
-    news "Ding ding ding, reports of information breach has happened. Be safe!"
+    "{i}You check the news.{/i}"
+    news "[[NEWS ANCHOR] Reports of information breach has happened. Be safe!"
     "Well, time to head off!"
 ################################ 2
 label travel:
     show bg travel with fade:
         zoom 4
     "(Ringtone)"
-    e "Who is this?"
-    coll "Yo Zilang! I need info on X client. Can you tell me their X number right?"
+    "Who is this?"
+    coll "[[Collegue] Yo Zilang! I need info on X client. Can you tell me their X number right?"
     menu travel0:
         "Discuss confidential details":
-            e "Sure, boss. The containment procedures involve exactly…"
+            "Sure, boss. The containment procedures involve exactly…"
             coll "Ok thanks Zilang!"
-            "The caller hangs up. You notice NPCs staring at you."
+            "{i}The caller hangs up. You notice NPCs staring at you.{/i}"
         "Wait until office arrival":
-            e "I'll give you the full rundown when I get to the secure line."
-            coll "Understandable have a nice day."
+            "I'll give you the full rundown when I get to the secure line."
+            coll "[[Collegue] Understandable have a nice day."
 ################################ 3
 label entrance:
     show bg entrance with fade:
         zoom 4
     "{i}You arrive at the office.{/i}"
     u "Hey Zilang what's up?"
-    e "Hi"
+    "Hi"
     u "Can you let me in?"
     menu entrance0:
         "Sure, happens to the best of us.":
             u "Thanks man you're the best."
         "Sorry, only ID'd personnel are allowed. Better safe than sorry.":
             u "Gee that's kind of an ass move."
-    e "Well, there's that I guess."
+    "Well, there's that I guess."
 ################################ 4
 label email:
     show bg office1 with fade
@@ -80,9 +80,9 @@ label email:
     "[[picture thingy]"
     menu email0:
         "Click link":
-            e "Uh-oh. That wasn't IT."
+            "Uh-oh. That wasn't IT."
         "Ignore email":
-            e "Annoying spam."
+            "Annoying spam."
         "Report phishing":
             "IT" "CONGRATS FOR NOT FALLING FOR THIS I GUESS LOL"
 ################################ 5
@@ -107,14 +107,14 @@ label confinfo:
 #         zoom 4
 #     "You arrive at the office."
 #     u "Hey Zilang what's up?"
-#     e "Hi"
+#     "Hi"
 #     u "Can you let me in?"
 #     menu exit:
 #         "Sure, happens to the best of us.":
 #             u "Thanks man you're the best."
 #         "Sorry, only ID'd personnel are allowed. Better safe than sorry.":
 #             u "Gee that's kind of an ass move."
-#     e "Well, there's that I guess."
+#     "Well, there's that I guess."
 ################################ 7
 label ending:
     show bg home with fade:

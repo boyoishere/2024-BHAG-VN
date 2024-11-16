@@ -26,14 +26,14 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#a8a8a8'
+define gui.accent_color = '#525252'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#707070'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#3f3f3f'
 
 ## The color that is used for buttons and bars that are hovered.
 define gui.hover_color = '#ffffff'
@@ -67,7 +67,7 @@ define gui.name_text_font = "DejaVuSans.ttf"
 define gui.interface_text_font = "Helvetica-Bold.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 40
+define gui.text_size = 43
 
 ## The size of character names.
 define gui.name_text_size = 45
