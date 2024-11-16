@@ -164,7 +164,7 @@ style say_dialogue:
 
     adjust_spacing False
 
-    # outlines [ (absolute(2), "#000", absolute(0), absolute(0)) ]
+    outlines [ (absolute(2), "#000", absolute(0), absolute(0)) ]
 
 ## Input screen ################################################################
 ##
