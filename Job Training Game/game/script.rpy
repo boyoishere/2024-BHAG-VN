@@ -3,6 +3,9 @@
 # A parody job training game, mostly for the purpose of learning RenPy
 # This is Boyo's BHAG 2024
 #################################
+style default:
+    outlines [ (absolute(2), "#000", absolute(0), absolute(0)) ]
+
 # Characters
 define e = Character("Zilang")
 define news = Character("Reporter")
@@ -16,34 +19,39 @@ label start:
     scene bg corpo:
         zoom 4
     show presenter normal
-    "Welcome to the ARF Information and Security Awareness Training."
+    "[[ARF CEO] Welcome to the ARF Information and Security Awareness Training."
     "This orientation is essential for understanding the critical role of confidentiality and secure practices within our operations."
+    
     "Here, we don't just protect people from animals and animals from people; we protect our knowledge, our methods, and our secrets from those who might exploit them."
+    
     "Failure to comply with these standards could jeopardize not only your role but also the lives of our agents, our allies, and the people we serve."
     hide presenter normal
     show zilang normal
-    "In this training simulation, you will assume the role of one of our esteemed field agents, Zilang, who is tasked with balancing the physical and digital aspects of animal containment and information security."
+    "In this training simulation, you will assume the role of one of our esteemed field agents, Zilang,"
+    
+    "who is tasked with balancing the physical and digital aspects of animal containment and information security."
+    
     "Through the course of a typical workday, your decisions will shape his effectiveness and assess his readiness to uphold the integrity and confidentiality of ARF."
 ################################ 1
 label intro:
     scene bg breakfast with fade
-    e "Yawnnn good morning"
+    "Yawnnn good morning"
     show zilang normal at right85
-    e "Help me pick my breakfast"
+    "Help me pick my breakfast"
     menu intro0:
         "2 pieces of animal crackers":
-            e "Mmm cannibalism!"
+            "Mmm cannibalism!"
         "1 cup of yogurt":
-            e "So cold..."
-    e "Well, that's breakfast I guess!"
+            "So cold..."
+    "Well, that's breakfast I guess!"
     "News start playing on his phone."
     news "Ding ding ding, reports of information breach has happened. Be safe!"
-    e "Well, time to head off!"
+    "Well, time to head off!"
 ################################ 2
 label travel:
     show bg travel with fade:
         zoom 4
-    "Ring ring ring. A phone call occurs."
+    "(Ringtone)"
     e "Who is this?"
     coll "Yo Zilang! I need info on X client. Can you tell me their X number right?"
     menu travel0:
@@ -58,7 +66,7 @@ label travel:
 label entrance:
     show bg entrance with fade:
         zoom 4
-    "You arrive at the office."
+    "{i}You arrive at the office.{/i}"
     u "Hey Zilang what's up?"
     e "Hi"
     u "Can you let me in?"

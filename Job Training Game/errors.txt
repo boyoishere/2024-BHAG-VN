@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-The label entrance is defined twice, at File "game/script.rpy", line 57:
-label entrance:
-and File "game/script.rpy", line 99:
-label entrance:
-
-
-The label entrance0 is defined twice, at File "game/script.rpy", line 64:
-    menu entrance0:
-and File "game/script.rpy", line 106:
-    menu entrance0:
-
+File "game/script.rpy", line 17: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    zoom 4
+    ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Fri Nov 15 16:31:27 2024
+Fri Nov 15 16:38:16 2024
