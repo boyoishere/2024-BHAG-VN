@@ -3,9 +3,6 @@
 # A parody job training game, mostly for the purpose of learning RenPy
 # This is Boyo's BHAG 2024
 #################################
-style default:
-    outlines [ (absolute(2), "#000", absolute(0), absolute(0)) ]
-
 # Characters
 define e = Character("Zilang")
 define news = Character("Reporter")

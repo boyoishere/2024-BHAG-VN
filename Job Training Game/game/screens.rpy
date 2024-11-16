@@ -164,6 +164,8 @@ style say_dialogue:
 
     adjust_spacing False
 
+    # outlines [ (absolute(2), "#000", absolute(0), absolute(0)) ]
+
 ## Input screen ################################################################
 ##
 ## This screen is used to display renpy.input. The prompt parameter is used to
