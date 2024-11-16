@@ -17,18 +17,22 @@ label start:
         zoom 4
     show presenter normal
     "[[ARF CEO] Welcome to the ARF Information and Security Awareness Training."
-    "This orientation is essential for understanding the critical role of confidentiality and secure practices within our operations."
+    "This orientation is essential for understanding the critical role of confidentiality--"
+    "--and secure practices within our operations."
     
-    "Here, we don't just protect people from animals and animals from people; we protect our knowledge, our methods, and our secrets from those who might exploit them."
+    "Here, we don't just protect people from animals and animals from people,"
+    "we protect our knowledge, our methods, and our secrets from those who might exploit them."
     
-    "Failure to comply with these standards could jeopardize not only your role but also the lives of our agents, our allies, and the people we serve."
+    "Failure to comply with these standards could jeopardize not only your role--"
+    "--but also the lives of our agents, our allies, and the people we serve."
     hide presenter normal
     show zilang normal
-    "In this training simulation, you will assume the role of one of our esteemed field agents, Zilang,"
+    "In this training simulation, you will assume the role of one of our field agents, Zilang,"
     
-    "who is tasked with balancing the physical and digital aspects of animal containment and information security."
+    "who is tasked with balancing the physical and digital aspects of information security today."
     
-    "Through the course of a typical workday, your decisions will shape his effectiveness and assess his readiness to uphold the integrity and confidentiality of ARF."
+    "Through the course of a typical workday, your decisions will shape his effectiveness--"
+    "--and assess his readiness to uphold the integrity and confidentiality of ARF."
 ################################ 1
 label intro:
     scene bg breakfast with fade
