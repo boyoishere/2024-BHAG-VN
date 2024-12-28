@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 17: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    zoom 4
-    ^
+File "game/script.rpy", line 70: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+            "\"Yes, it's H217."":
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Fri Nov 15 16:38:16 2024
+Sat Dec 28 00:44:35 2024
