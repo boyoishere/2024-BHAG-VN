@@ -1,28 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "renpy/common/00start.rpy", line 279, in script
-    python:
-ScriptError: could not find label 'start'.
+After initialization, but before game start.
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json.new' -> 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
     renpy.main.main()
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\main.py", line 652, in main
-    run(restart)
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\main.py", line 148, in run
-    renpy.execution.run_context(True)
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\execution.py", line 958, in run_context
-    context.run()
-  File "renpy/common/00start.rpy", line 279, in script
-    python:
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'start'.
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\main.py", line 599, in main
+    renpy.dump.dump(False)
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\dump.py", line 262, in dump
+    os.rename(new, filename)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json.new' -> 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json'
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.2.24090902
 Information and Security Awareness Training 101 1.0
-Fri Dec 27 23:46:43 2024
+Mon Dec 30 00:27:23 2024

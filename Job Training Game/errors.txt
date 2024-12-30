@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 70: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-            "\"Yes, it's H217."":
+File "game/script.rpy", line 75: end of line expected.
+    hide collegue call, zilang neutral
+                      ^
+
+File "game/script.rpy", line 81: end of line expected.
+    show collegue call, zilang neutral
+                      ^
+
+File "game/script.rpy", line 87: end of line expected.
+    show collegue call, zilang neutral
+                      ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Sat Dec 28 00:44:35 2024
+Mon Dec 30 02:45:27 2024
