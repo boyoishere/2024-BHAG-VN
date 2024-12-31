@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Information and Security Awareness Training 101")
+define config.name = _("ARF Security Training (New Hires Only)")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -30,6 +30,7 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+A parody job training game, mostly for the purpose of learning RenPy
 """)
 
 

@@ -12,73 +12,79 @@ label start:
     show presenter normal
     show logo
     "[[ARF EXECUTIVES] Welcome to the ARF Security Awareness Training."
-    jump entrance
-    "This orientation is essential for understanding the critical role of confidentiality--"
+    jump email
+    "This training is essential for understanding the role of confidentiality--"
     "--and secure practices within our operations."
-    "Here, we don't just protect people from animals and animals from people,"
-    "we protect our knowledge, our methods, and our secrets from those who might exploit them."
     "Noncompliance could endanger your position, our agents, and the lives we strive to protect."
     hide presenter normal
     show zilang avatar
     "In this training, you will assume the role of Agent Zilang,"
-    "who is tasked with balancing the physical and digital aspects of information security today."
+    "who is tasked with balancing the various aspects of secure practices."
     "Through the course of a typical workday, your decisions will shape not only his success--"
-    "--but your own readiness to uphold integrity and confidentiality at ARF. Good luck."
+    "--but your own readiness to uphold ARF's standards as an incoming agent. Good luck."
 # ---------------------------------
 label intro:
     scene bg apartment with fade
-    "[[ZILANG] (Yawning) Good morning world..."
+    "(Default Android alarm)"
+    "[[???] Mmm...Argh...Grrr....."
+    "(Loud default Android alarm)"
+    "(Click. Alarm stops.)"
+    "[[ZILANG] Good morning."
     show zilang neutral
-    "What should I eat for breakfast today?"
+    "What should I have for breakfast?"
     hide zilang neutral
     show breakfast all
     menu intro0:
         "A bowl of Boy-O Crisp breakfast cereal":
             hide breakfast all
             show breakfast cereal
-            "Boy-O Crisp breakfast cereal sure is the best."
+            "Boy-O Crisp breakfast cereal is my favorite brand of breakfast cereal."
             "You can get 4 large size boxes for only $4 right now at Walmart."
             hide breakfast cereal
         "A cup of Moogurt yogurt":
             hide breakfast all
             show breakfast yogurt
-            "I never liked this brand, but it's I suppose it's healthy..."
+            "Never liked this brand, but it's I suppose it's healthy."
             hide breakfast yogurt
     show zilang neutral
-    "{i}While devouring your cold, bite-sized breakfast, you turn on the TV.{/i}"
+    "{i}While devouring your cold, bite-sized, barely healthy breakfast, you turn on the TV.{/i}"
     hide zilang neutral
     show cut news
-    "[[NEWS ANCHOR] Across multiple firms across Washington has reported incidents of security breach last night."
-    "FBI posted an emergent announcement to navigate work sites with extra caution--"
+    "[[NEWS ANCHOR] 47%% of Washington firms has suffered data breach,"
+    "resulting in severe financial loss this year."
+    "The FBI has issued an urgent announcement advising heightened caution when navigating--"
     hide cut news
     show zilang neutral
-    "Shoot, it's almost 7:00. I better head off now."
+    "[[ZILANG] Oh boy! It's almost 8:00. I better head off now."
 # ---------------------------------
 label travel:
     scene bg travel with fade
     show zilang neutral
     "(Ringtone) {i}You receive a call from your coworker, Pint.{/i}"
     show collegue call
-    "[[PINT] Zilang, where are you? The client is waiting."
+    "[[PINT] Zilang, Beaverton station is asking where you assigned Subject D4 to."
+    "Please tell me the address now so they can stop stalling the chase. Also where are you?"
     "[[ZILANG] Sorry, I'm on my way. I'll be there in 20."
-    "[[PINT] Ok... Do you still rememeber her case number?"
+    "[[PINT] Alright. Can you give me the address?"
     menu travel0:
-        "Tell him":
+        "{i}It's probably not a big deal.{/i}":
             $ n += 1
             show cut call with dissolve
-            "[[ZILANG] You can find it in the open catalog. It was H23-something..."
+            "[[ZILANG] 642 West Delinoise St. I stickied it in the open catalog."
             hide cut call with dissolve
-            "[[PINT] Okay thanks, I'll see you later."
+            "[[PINT] Thank god. Thanks I'll see you later."
             hide collegue
             "{i}Pint hangs up.{/i}"
-            "I gotta get moving."
-        "\"Yes, but I can't tell you until I get to the office.\"":
+        "Refuse your coworker.":
             show collegue call
             show zilang neutral
-            "[[PINT] Why are you being an ass when you're already late?"
+            "[[ZILANG] (Hesitant) I understand it's urgent--" "but it's against protocol to send information like this over calls."
+            "{i}What a good, responsible employee you are!{/i}"
+            "[[PINT] ..."
+            "[[PINT] Ok."
             hide collegue
             "{i}Pint hangs up.{/i}"
-            "Man, maybe I shouldn't have said that."
+    "I gotta get moving."
 # ---------------------------------
 label entrance:
     scene bg entrance with fade
@@ -103,6 +109,7 @@ label entrance:
     show niko neutral
     "..."
     "......"
+    "........."
     show zilang talk
     "[[ZILANG] You know I can't let you in without your ID."
     show zilang neutral
@@ -117,7 +124,7 @@ label entrance:
             hide cut cctv with dissolve
             "{i}Niko thanks you with a curt nod and enters.{/i}"
             hide niko
-        "{i}It's probably a big deal{/i}":
+        "{i}Refuse your coworker and friend.{/i}":
             show zilang talk
             show niko neutral
             "I...I'm sorry...."
@@ -126,7 +133,7 @@ label entrance:
             show zilang neutral
             hide niko
             "{i}Niko leaves to make a call.{/i}"
-    "{i}I hope that wasn't a big deal....{/i}"
+    "{i}Good job Zilang! You are such a great employee!{/i}"
 # ---------------------------------
 label email:
     scene bg office1 with fade
@@ -144,11 +151,11 @@ label emailcheck:
             show email 1
             "Why are they sending me the spending report? Hopefully it's not about overspending on snacks again."
             menu email1:
-                "Report to IT":
+                "Report it to IT":
                     "Gallen's profile picture is a bit odd...I'll forward this to IT just in case."
                     show email
                     jump emailcheck
-                "Close and go back":
+                "Close it ":
                     "(Growl) I'll just ask Niko to help me work on this later."
                     show email
                     jump emailcheck
@@ -157,11 +164,16 @@ label emailcheck:
             show email 2
             "(Chuckle) I should send this one to Niko."
             menu email2:
-                "Report to IT":
+                "Report it to IT":
                     "But nice try. Off to IT you go!"
                     show email
                     jump emailcheck
+                "Close it":
+                    "Yeah, I think he'd enjoy this one."
+                    show email
+                    jump emailcheck
                 "Find love now":
+                    show email virus
                     "{i}Curiosity killed the dog.{/i}"
                     show email
                     jump emailcheck
@@ -169,10 +181,10 @@ label emailcheck:
             $ view += 1
             "Admin work truly is the most annoying!"
             menu email3:
-                "Report to IT":
+                "Report it to IT":
                     "I'm not opening anything sensitive without a green light from IT."
                     jump emailcheck
-                "Close and go back":
+                "Close it":
                     "But I guess I can work on this...tomorrow..."
                     jump emailcheck
 # ---------------------------------

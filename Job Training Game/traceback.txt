@@ -1,28 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 138, in script
-    if view >= 3:
-  File "game/script.rpy", line 138, in <module>
-    if view >= 3:
-NameError: name 'view' is not defined
+  File "game/script.rpy", line 52, in script
+    "[[NEWS ANCHOR] 47% of Washington firms has suffered data breach resulting in severe financial loss this year."
+TypeError: %o format: an integer is required, not TagQuotingDict
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 138, in script
-    if view >= 3:
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\ast.py", line 1843, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 138, in <module>
-    if view >= 3:
-NameError: name 'view' is not defined
+  File "game/script.rpy", line 52, in script
+    "[[NEWS ANCHOR] 47% of Washington firms has suffered data breach resulting in severe financial loss this year."
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\ast.py", line 2573, in execute
+    Say.execute(self)
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\ast.py", line 615, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\exports\sayexports.py", line 121, in say
+    what = what % tag_quoting_dict
+TypeError: %o format: an integer is required, not TagQuotingDict
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.2.24090902
 Information and Security Awareness Training 101 1.0
-Tue Dec 31 03:10:11 2024
+Tue Dec 31 11:11:25 2024
