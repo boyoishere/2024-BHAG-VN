@@ -1,20 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json.new' -> 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json'
+While running game code:
+  File "game/script.rpy", line 138, in script
+    if view >= 3:
+  File "game/script.rpy", line 138, in <module>
+    if view >= 3:
+NameError: name 'view' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\main.py", line 599, in main
-    renpy.dump.dump(False)
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\dump.py", line 262, in dump
-    os.rename(new, filename)
-PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json.new' -> 'C:\\Users\\david\\Documents\\Misc Coding\\VN\\Job Training Game\\game\\saves\\navigation.json'
+  File "game/script.rpy", line 138, in script
+    if view >= 3:
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\ast.py", line 1843, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 138, in <module>
+    if view >= 3:
+NameError: name 'view' is not defined
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.2.24090902
 Information and Security Awareness Training 101 1.0
-Mon Dec 30 00:27:23 2024
+Tue Dec 31 03:10:11 2024

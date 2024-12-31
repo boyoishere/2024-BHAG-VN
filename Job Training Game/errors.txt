@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 75: end of line expected.
-    hide collegue call, zilang neutral
-                      ^
-
-File "game/script.rpy", line 81: end of line expected.
-    show collegue call, zilang neutral
-                      ^
-
-File "game/script.rpy", line 87: end of line expected.
-    show collegue call, zilang neutral
-                      ^
+File "game/script.rpy", line 148: Line is indented, but the preceding set menuitem statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "the first email":
+    ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Mon Dec 30 02:45:27 2024
+Tue Dec 31 03:04:43 2024

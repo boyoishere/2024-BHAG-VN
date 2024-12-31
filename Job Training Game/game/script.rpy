@@ -1,45 +1,34 @@
-﻿#################################
+﻿# ---------------------------------
 # Author: Boyo
 # A parody job training game, mostly for the purpose of learning RenPy
 # This is Boyo's BHAG 2024
-#################################
-# Characters
-define e = Character("Zilang")
-define news = Character("Reporter")
-define coll = Character("Collegue")
-define u = Character("Unknown")
-
-# Utility
-define right85 = Position(xalign=0.85)
-################################# 0
+# ---------------------------------
+# variables
+define n = 0
+define view = 0
+# ---------------------------------
 label start:
     scene bg corpo
     show presenter normal
     show logo
-    "[[ARF CEO] Welcome to the ARF Information and Security Awareness Training."
-    # jump intro #!!!!!!!!!!!
+    "[[ARF EXECUTIVES] Welcome to the ARF Security Awareness Training."
+    jump entrance
     "This orientation is essential for understanding the critical role of confidentiality--"
     "--and secure practices within our operations."
-    
     "Here, we don't just protect people from animals and animals from people,"
     "we protect our knowledge, our methods, and our secrets from those who might exploit them."
-    
-    "Failure to comply with these standards could jeopardize not only your role--"
-    "--but also the lives of our agents, our allies, and the people we serve."
+    "Noncompliance could endanger your position, our agents, and the lives we strive to protect."
     hide presenter normal
-    show zilang avatar at center
-    "In this training simulation, you will assume the role of one of our field agents, Zilang,"
-    
+    show zilang avatar
+    "In this training, you will assume the role of Agent Zilang,"
     "who is tasked with balancing the physical and digital aspects of information security today."
-    
-    "Through the course of a typical workday, your decisions will shape his effectiveness--"
-    "--and assess his readiness to uphold the integrity and confidentiality of ARF."
-################################ 1
+    "Through the course of a typical workday, your decisions will shape not only his success--"
+    "--but your own readiness to uphold integrity and confidentiality at ARF. Good luck."
+# ---------------------------------
 label intro:
     scene bg apartment with fade
     "[[ZILANG] (Yawning) Good morning world..."
     show zilang neutral
-    # jump email #!!!!!!!!!!!
     "What should I eat for breakfast today?"
     hide zilang neutral
     show breakfast all
@@ -64,23 +53,21 @@ label intro:
     hide cut news
     show zilang neutral
     "Shoot, it's almost 7:00. I better head off now."
-################################ 2
+# ---------------------------------
 label travel:
-    show bg travel with fade
+    scene bg travel with fade
+    show zilang neutral
     "(Ringtone) {i}You receive a call from your coworker, Pint.{/i}"
     show collegue call
     "[[PINT] Zilang, where are you? The client is waiting."
     "[[ZILANG] Sorry, I'm on my way. I'll be there in 20."
     "[[PINT] Ok... Do you still rememeber her case number?"
-    hide collegue call
-    hide zilang neutral
     menu travel0:
         "Tell him":
+            $ n += 1
             show cut call with dissolve
             "[[ZILANG] You can find it in the open catalog. It was H23-something..."
             hide cut call with dissolve
-            show collegue call
-            show zilang neutral
             "[[PINT] Okay thanks, I'll see you later."
             hide collegue
             "{i}Pint hangs up.{/i}"
@@ -92,15 +79,24 @@ label travel:
             hide collegue
             "{i}Pint hangs up.{/i}"
             "Man, maybe I shouldn't have said that."
-################################ 3
+# ---------------------------------
 label entrance:
-    show bg entrance with fade
-    "{i}You arrive at the office.{/i}"
-    show niko talk
-    "[[NIKO] Took you long enough."
+    scene bg entrance with fade
+    show zilang neutral
+    "{i}You arrive at the front entrance.{/i}"
+    hide zilang
+    show swipe 0
+    menu swipe:
+        "Swipe your ID":
+            show swipe 1
+            "{i}You swipe yourself in.{/i}"
+            "[[???] Took you long enough."
+    hide swipe
+    show zilang neutral
+    "{i}You look behind you.{/i}"
     show zilang talk
     show niko neutral
-    "[[ZILANG] What are you doing out here? Don't you have to be at that meeting?"
+    "[[ZILANG] Niko? What are you doing out here? Don't you have to be at that meeting?"
     show zilang neutral
     show niko talk
     "[[NIKO] Left my ID in the RV. Again."
@@ -114,64 +110,96 @@ label entrance:
     "[[NIKO] Zilang, I just need a temporary badge from the front desk."
     menu entrance0:
         "{i}It's probably not a big deal.{/i}":
+            $ n += 1
+            show niko neutral
+            show cut cctv with dissolve
             "{i}You swipe in Niko.{/i}"
+            hide cut cctv with dissolve
             "{i}Niko thanks you with a curt nod and enters.{/i}"
             hide niko
-            show cut cctv
-        "{i}Would management see this?{/i}":
+        "{i}It's probably a big deal{/i}":
+            show zilang talk
+            show niko neutral
             "I...I'm sorry...."
+            show niko talk
             "[[NIKO]{i} Sigh.{/i} Figures."
+            show zilang neutral
             hide niko
             "{i}Niko leaves to make a call.{/i}"
     "{i}I hope that wasn't a big deal....{/i}"
-################################ 4
+# ---------------------------------
 label email:
-    hide cut cctv
-    show bg office1 with fade
+    scene bg office1 with fade
+    show zilang neutral
     "{i}You arrive at your desk.{/i}"
-    "{i}You check your email. You click on-{/i}"
-    menu email0:
-        "The first email":
+    hide zilang neutral
+    show email
+    "{i}You go through your inbox and open--{/i}"
+label emailcheck:
+    if view >= 3:
+            jump spill
+    menu emailmain:
+        "the first email":
+            $ view += 1
             show email 1
-            "Not the snack bills again..."
-            hide email 1
-        "The second email.":
+            "Why are they sending me the spending report? Hopefully it's not about overspending on snacks again."
+            menu email1:
+                "Report to IT":
+                    "Gallen's profile picture is a bit odd...I'll forward this to IT just in case."
+                    show email
+                    jump emailcheck
+                "Close and go back":
+                    "(Growl) I'll just ask Niko to help me work on this later."
+                    show email
+                    jump emailcheck
+        "the second email":
+            $ view += 1
             show email 2
-            "Annoying spam."
-        "The third email.":
-            "IT" "CONGRATS FOR NOT FALLING FOR THIS I GUESS LOL"
-################################ 5
-label confinfo:
-    show bg office2 with fade:
-        zoom 0.9
-    "Now it's time to identify different levels of confidentiality."
-    "What kinda info is this scenario?"
-    menu confinfo0:
-        "Company secret":
-            "WRONG"
-            jump confinfo0
-        "Top secret":
-            "CORRECT"
-        "Confidential information":
-            "WRONG"
-            jump confinfo0
-    "Good job."
-################################ 6
-# label exist:
-#     show bg entrance with fade:
-#         zoom 4
-#     "You arrive at the office."
-#     u "Hey Zilang what's up?"
-#     "Hi"
-#     u "Can you let me in?"
-#     menu exit:
-#         "Sure, happens to the best of us.":
-#             u "Thanks man you're the best."
-#         "Sorry, only ID'd personnel are allowed. Better safe than sorry.":
-#             u "Gee that's kind of an ass move."
-#     "Well, there's that I guess."
-################################ 7
+            "(Chuckle) I should send this one to Niko."
+            menu email2:
+                "Report to IT":
+                    "But nice try. Off to IT you go!"
+                    show email
+                    jump emailcheck
+                "Find love now":
+                    "{i}Curiosity killed the dog.{/i}"
+                    show email
+                    jump emailcheck
+        "the third email":
+            $ view += 1
+            "Admin work truly is the most annoying!"
+            menu email3:
+                "Report to IT":
+                    "I'm not opening anything sensitive without a green light from IT."
+                    jump emailcheck
+                "Close and go back":
+                    "But I guess I can work on this...tomorrow..."
+                    jump emailcheck
+# ---------------------------------
+label spill:
+    scene bg warehouse with fade
+    show zilang neutral
+    "{i}You enter the warehouse.{/i}"
+# ---------------------------------
+# ENDINGS
+# ---------------------------------
 label ending:
-    show bg home with fade:
-        zoom 1
-    "Zilang's choices lead to a breach, resulting in \"Critical Incident Report.\""
+    scene bg apartment night with fade
+    show zilang neutral
+    "{i}After a long day of work, you arrive home.{/i}"
+    if n >= 4:
+        jump badending
+    elif n >= 1:
+        jump neutralending
+    else:
+        jump goodending
+label badending:
+    "{i}Due to your horrible practices, you have been fired.{/i}"
+    return
+label neutralending:
+    "{i}You are ok...{/i}"
+    return
+label goodending:
+    show zilang happy
+    "{i}Good job, you are a good employee!{/i}"
+    return
