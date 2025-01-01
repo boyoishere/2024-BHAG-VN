@@ -315,7 +315,7 @@ label news:
         "at an ARF warehouse in Beaverton. Investigation into address leaks are ongoing."
     if emailleak == True:
         "ARF stock plummets following a breach, with hackers exposing trade secrets from attacked accounts."
-    "ARF is going through a rough patch this season, stay tuned for the latest updates."
+    "It seems like ARF will be going through a rough patch this season, stay tuned for the latest updates."
     return
 # ---------------------------------
 # BONUSES
