@@ -136,6 +136,7 @@ label entrance:
     menu entrance0:
         "{i}It's probably not a big deal.{/i}":
             $ defy += 1
+            $ pinthappy = True
             show niko neutral
             show cut cctv1 with dissolve
             "{i}You swipe in Niko.{/i}"
@@ -172,10 +173,10 @@ label emailcheck:
             menu email1:
                 "Report to IT":
                     $ itannoy = True
-                    "Gallen's profile picture is a bit odd...I should forward this to IT just in case."
+                    "Hopefully IT won't find me annoying."
                     show email
                     jump emailcheck
-                "Close":
+                "Leave it":
                     "(Growl) I'll just ask Niko to help me work on this later."
                     show email
                     jump emailcheck
@@ -189,7 +190,7 @@ label emailcheck:
                     "But nice try. Off to IT you go!"
                     show email
                     jump emailcheck
-                "Close":
+                "Leave it":
                     $ defy += 1
                     "I'll show it to him later."
                     show email
@@ -211,7 +212,7 @@ label emailcheck:
                     "\"Mobu\" is a horrible speller. Also, who still uses Yahoo?"
                     show email
                     jump emailcheck
-                "Close":
+                "Leave it":
                     $ defy += 1
                     $ emailleak = True
                     "I've got enough on my plate for now."
@@ -251,7 +252,7 @@ label spill:
                 $ fumedeath = True
                 "{i}No one picks up.{/i}"
                 "I wonder where everyone is."
-                "{i}You leave the scene.{/i}"
+                "{i}At least you tried.{/i}"
                 jump ending
         "Leave it to dry":
             $ defy += 1
@@ -265,11 +266,35 @@ label ending:
     scene bg apartment night with fade
     show zilang neutral
     "{i}After a long, productive day, you finally return to home sweet home.{/i}"
-    "{i}You check the results of today's assessment.{/i}"
+label incidentcheck:
+    if fumedeath == True:
+        jump news
+    elif addrleak == True:
+        jump news
+    elif emailleak == True:
+        jump news
+    else:
+        jump assessment
 
+label news:
+    "{i}You check the news.{/i}"
+    show cut news with dissolve
+    "[[ANCHOR] Breaking News Tonight."
+    if fumedeath == True:
+        "Tragedy strikes as 12 ARF workers are found dead from toxic fumes in a Harewick warehouse."
+    if addrleak == True:
+        "Pa No Paw extremists have located and killed phantom hamsters--"
+        "at an ARF warehouse in Beaverton. Investigation into address leaks are ongoing."
+    if emailleak == True:
+        "ARF stock plummets following a breach, with hackers exposing trade secrets from attacked accounts."
+    "It seems like ARF will be going through a rough patch this season, stay tuned for the latest updates."
+    jump assessment
+
+label assessment:
+    hide cut news with dissolve
+    "{i}You check the results of today's assessment.{/i}"
     if defy >=10:
         jump ending3
-
     if abide >= 5:
         jump ending1
     elif abide >= 3:
@@ -287,35 +312,11 @@ label ending2:
     show ending 2
     "{i}You were quite alright. ARF looks forward to your future trainings!{/i}"
     hide ending 2
-    jump incidentcheck
+    return
 label ending3:
     show ending 3
     "{i}You are a very adventurous individual, and ARF wishes you the best with your adventures elsewhere!{/i}"
     hide ending 3
-    jump incidentcheck
-
-label incidentcheck:
-    if fumedeath == True:
-        jump news
-    elif addrleak == True:
-        jump news
-    elif emailleak == True:
-        jump news
-    else:
-        return
-
-label news:
-    "{i}You check the news.{/i}"
-    show cut news with dissolve
-    "[[ANCHOR] Breaking News Tonight."
-    if fumedeath == True:
-        "Tragedy strikes as 12 ARF workers are found dead from toxic fumes in a Harewick warehouse."
-    if addrleak == True:
-        "Pa No Paw extremists have located and killed phantom hamsters--"
-        "at an ARF warehouse in Beaverton. Investigation into address leaks are ongoing."
-    if emailleak == True:
-        "ARF stock plummets following a breach, with hackers exposing trade secrets from attacked accounts."
-    "It seems like ARF will be going through a rough patch this season, stay tuned for the latest updates."
     return
 # ---------------------------------
 # BONUSES
