@@ -88,7 +88,7 @@ label travel:
             "[[PINT] Thank god. Thanks I'll see you later."
             hide collegue
             "{i}Pint hangs up.{/i}"
-        "Refuse your coworker.":
+        "Refuse your coworker":
             $ abide += 1
             show collegue wait
             show zilang talk
@@ -142,7 +142,7 @@ label entrance:
             "{i}You swipe in Niko.{/i}"
             show cut cctv2
             "{i}Niko thanks you with a curt nod and enters.{/i}"
-        "Refuse your coworker and friend.":
+        "Refuse your coworker and friend":
             $ abide += 1
             show zilang talk
             show niko neutral
