@@ -304,17 +304,20 @@ label assessment:
 
 label ending1:
     show ending 1
+    show logo
     "{i}Corporate loves you!{/i}"
     # show zilang happy
     # hide ending 1
     return
 label ending2:
     show ending 2
+    show logo
     "{i}You were quite alright. ARF looks forward to your future trainings!{/i}"
     hide ending 2
     return
 label ending3:
     show ending 3
+    show logo
     "{i}You are a very adventurous individual, and ARF wishes you the best with your adventures elsewhere!{/i}"
     hide ending 3
     return
