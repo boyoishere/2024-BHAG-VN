@@ -51,7 +51,7 @@ label intro:
         "A cup of Moogurt yogurt":
             hide breakfast all
             show breakfast yogurt
-            "Never liked this brand, but it's I suppose it's healthy."
+            "Never liked this brand, but I suppose it's healthy."
             hide breakfast yogurt
     show zilang neutral
     "{i}While devouring your cold, bite-sized, barely healthy breakfast, you turn on the TV.{/i}"
