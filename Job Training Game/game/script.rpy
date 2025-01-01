@@ -4,15 +4,22 @@
 # This is Boyo's BHAG 2024
 # ---------------------------------
 # variables
-define n = 0
+define abide = 0
+define defy = 0
 define view = 0
+
+define itannoy = False
+define pinthappy = False
+define addrleak = False
+define emailleak = False
+define fumedeath = False
 # ---------------------------------
 label start:
     scene bg corpo
     show presenter normal
     show logo
     "[[ARF EXECUTIVES] Welcome to the ARF Security Awareness Training."
-    jump travel
+    # jump spill
     "This training is essential for understanding the role of confidentiality--"
     "--and secure practices within our operations."
     "Noncompliance could endanger your position, our agents, and the lives we strive to protect."
@@ -21,7 +28,7 @@ label start:
     "In this training, you will assume the role of Agent Zilang,"
     "who is tasked with balancing the various aspects of secure practices."
     "Through the course of a typical workday, your decisions will shape not only his success--"
-    "--but your own readiness to uphold ARF's standards as an incoming agent. Good luck."
+    "--but your own readiness to uphold ARF's standards as a potential employee. Good luck."
 # ---------------------------------
 label intro:
     scene bg apartment with fade
@@ -48,13 +55,13 @@ label intro:
             hide breakfast yogurt
     show zilang neutral
     "{i}While devouring your cold, bite-sized, barely healthy breakfast, you turn on the TV.{/i}"
-    hide zilang neutral
-    show cut news
+    # hide zilang neutral
+    show cut news with dissolve
     "[[NEWS ANCHOR] 47%% of Washington firms has suffered data breach,"
     "resulting in severe financial loss this year."
     "The FBI has issued an urgent announcement advising heightened caution when navigating--"
     hide cut news
-    show zilang neutral
+    # show zilang neutral
     "[[ZILANG] Oh boy! It's almost 8:00. I better head off now."
 # ---------------------------------
 label travel:
@@ -72,14 +79,17 @@ label travel:
     "[[PINT] Alright. Can you give me the address?"
     menu travel0:
         "{i}It's probably not a big deal.{/i}":
-            $ n += 1
+            $ defy += 1
+            $ pinthappy = True
+            $ addrleak = True
             show cut call with dissolve
-            "[[ZILANG] 642 West Delinoise St. I stickied it in the open catalog."
+            "[[ZILANG] 642 West Delinoise Street at Beaverton. I stickied it in the open catalog."
             hide cut call with dissolve
             "[[PINT] Thank god. Thanks I'll see you later."
             hide collegue
             "{i}Pint hangs up.{/i}"
         "Refuse your coworker.":
+            $ abide += 1
             show collegue wait
             show zilang talk
             "[[ZILANG] (Hesitant) I understand it's urgent--"
@@ -91,6 +101,7 @@ label travel:
             "[[PINT] Ok."
             hide collegue
             "{i}Pint hangs up.{/i}"
+    show zilang talk
     "I gotta get moving."
 # ---------------------------------
 label entrance:
@@ -124,13 +135,14 @@ label entrance:
     "[[NIKO] Zilang, I just need a temporary badge from the front desk."
     menu entrance0:
         "{i}It's probably not a big deal.{/i}":
-            $ n += 1
+            $ defy += 1
             show niko neutral
             show cut cctv1 with dissolve
             "{i}You swipe in Niko.{/i}"
             show cut cctv2
             "{i}Niko thanks you with a curt nod and enters.{/i}"
         "{i}Refuse your coworker and friend.{/i}":
+            $ abide += 1
             show zilang talk
             show niko neutral
             "I...I'm sorry...."
@@ -159,6 +171,7 @@ label emailcheck:
             "Hopefully it's not about overspending on snacks again."
             menu email1:
                 "Report to IT":
+                    $ itannoy = True
                     "Gallen's profile picture is a bit odd...I should forward this to IT just in case."
                     show email
                     jump emailcheck
@@ -172,14 +185,18 @@ label emailcheck:
             "(Chuckle) I should forward this one to Niko."
             menu email2:
                 "Report to IT":
+                    $ abide += 1
                     "But nice try. Off to IT you go!"
                     show email
                     jump emailcheck
                 "Close":
+                    $ defy += 1
                     "I'll show it to him later."
                     show email
                     jump emailcheck
                 "Find love now":
+                    $ defy += 10
+                    $ emailleak = True
                     show email virus with dissolve
                     "{i}Curiosity killed the dog.{/i}"
                     # show email
@@ -190,10 +207,13 @@ label emailcheck:
             "I've never seen this before, but it seems better than the old lottery system."
             menu email3:
                 "Report to IT":
+                    $ abide += 1
                     "\"Mobu\" is a horrible speller. Also, who still uses Yahoo?"
                     show email
                     jump emailcheck
                 "Close":
+                    $ defy += 1
+                    $ emailleak = True
                     "I've got enough on my plate for now."
                     show email
                     jump emailcheck
@@ -205,16 +225,37 @@ label spill:
     hide zilang neutral
     show spill 1
     "{i}You almost step into a puddle.{/i}"
-    show zilang neutral
     "[[ZILANG] What is this?"
     menu spillmenu:
         "Investigate alone":
-            "Die."
+            scene zilang dead
+            "{i}Who would've guessed it gave off toxic fumes?{/i}"
+            return
         "Report this":
+            $ abide += 1
+            show zilang neutral
             "{i}You call your coworker.{/i}"
-            show collegue call
-            "[[]]"
+            if pinthappy == True:
+                show collegue call
+                "[[PINT] Yes?"
+                show zilang talk
+                show collegue wait
+                "[[ZILANG] Hi Pint. There's a puddle of unidentified substance at the warehouse."
+                show zilang neutral
+                show collegue call
+                "[[PINT] Shit. Leave immediately. I'll inform the rest of the crew."
+                hide collegue call
+                "{i}Pint hangs up.{/i}"
+                jump ending
+            else:
+                $ fumedeath = True
+                "{i}No one picks up.{/i}"
+                "I wonder where everyone is."
+                "{i}You leave the scene.{/i}"
+                jump ending
         "Leave it to dry":
+            $ defy += 1
+            $ fumedeath = True
             "Someone probably spilled their water."
             jump ending
 # ---------------------------------
@@ -223,26 +264,58 @@ label spill:
 label ending:
     scene bg apartment night with fade
     show zilang neutral
-    "{i}At last, you arrive at home. You check the results of today's assessment.{/i}"
-    if n >= 4:
+    "{i}After a long, productive day, you finally return to home sweet home.{/i}"
+    "{i}You check the results of today's assessment.{/i}"
+
+    if defy >=10:
         jump ending3
-    elif n >= 2:
+
+    if abide >= 5:
+        jump ending1
+    elif abide >= 3:
         jump ending2
     else:
-        jump ending1
-label ending3:
-    show ending 3
-    "{i}You are a very adventurous individual, and ARF wishes you the best with your adventures elsewhere!{/i}"
-    return
-label ending2:
-    show ending 2
-    "{i}You were quite alright. ARF looks forward to your future trainings!{/i}"
-    return
+        jump ending3
+
 label ending1:
     show ending 1
     "{i}Corporate loves you!{/i}"
     # show zilang happy
     # hide ending 1
+    return
+label ending2:
+    show ending 2
+    "{i}You were quite alright. ARF looks forward to your future trainings!{/i}"
+    hide ending 2
+    jump incidentcheck
+label ending3:
+    show ending 3
+    "{i}You are a very adventurous individual, and ARF wishes you the best with your adventures elsewhere!{/i}"
+    hide ending 3
+    jump incidentcheck
+
+label incidentcheck:
+    if fumedeath == True:
+        jump news
+    elif addrleak == True:
+        jump news
+    elif emailleak == True:
+        jump news
+    else:
+        return
+
+label news:
+    "{i}You check the news.{/i}"
+    show cut news with dissolve
+    "[[ANCHOR] Breaking News Tonight."
+    if fumedeath == True:
+        "Tragedy strikes as 12 ARF workers are found dead from toxic fumes in a Harewick warehouse."
+    if addrleak == True:
+        "Pa No Paw extremists have located and killed phantom hamsters--"
+        "at an ARF warehouse in Beaverton. Investigation into address leaks are ongoing."
+    if emailleak == True:
+        "ARF stock plummets following a breach, with hackers exposing trade secrets from attacked accounts."
+    "ARF faces mounting crises, stay tuned for the latest updates."
     return
 # ---------------------------------
 # BONUSES
@@ -259,7 +332,4 @@ label hotdog:
         "Send your laptop to IT":
             "{i}Embarassing.{/i}"
             jump spill
-label death:
-    scene zilang dead
-    "{i}You inhaled too much fume from that unidentified puddle.{/i}"
 # ---------------------------------

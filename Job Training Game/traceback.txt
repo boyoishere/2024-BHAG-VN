@@ -1,24 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 52, in script
-    "[[NEWS ANCHOR] 47% of Washington firms has suffered data breach resulting in severe financial loss this year."
-TypeError: %o format: an integer is required, not TagQuotingDict
+  File "renpy/common/00start.rpy", line 279, in script
+    python:
+ScriptError: could not find label 'start'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 52, in script
-    "[[NEWS ANCHOR] 47% of Washington firms has suffered data breach resulting in severe financial loss this year."
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\ast.py", line 2573, in execute
-    Say.execute(self)
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\exports\sayexports.py", line 121, in say
-    what = what % tag_quoting_dict
-TypeError: %o format: an integer is required, not TagQuotingDict
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\main.py", line 652, in main
+    run(restart)
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\main.py", line 148, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\execution.py", line 958, in run_context
+    context.run()
+  File "renpy/common/00start.rpy", line 279, in script
+    python:
+  File "C:\Users\david\Downloads\renpy-8.3.2-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'start'.
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.2.24090902
-Information and Security Awareness Training 101 1.0
-Tue Dec 31 11:11:25 2024
+ARF Security Training (New Hire) 1.0
+Tue Dec 31 22:47:02 2024

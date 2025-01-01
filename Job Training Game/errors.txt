@@ -2,11 +2,13 @@
 errors listed below, and try again.
 
 
-The label hotdog is defined twice, at File "game/script.rpy", line 243:
-label hotdog:
-and File "game/script.rpy", line 244:
-label hotdog:
+File "game/script.rpy", line 261: end of line expected.
+    jump ending 3
+                ^
 
+File "game/script.rpy", line 286: expected statement.
+    If 
+       ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Tue Dec 31 19:13:30 2024
+Tue Dec 31 21:30:43 2024
