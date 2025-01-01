@@ -141,7 +141,7 @@ label entrance:
             "{i}You swipe in Niko.{/i}"
             show cut cctv2
             "{i}Niko thanks you with a curt nod and enters.{/i}"
-        "{i}Refuse your coworker and friend.{/i}":
+        "Refuse your coworker and friend.":
             $ abide += 1
             show zilang talk
             show niko neutral
@@ -315,7 +315,7 @@ label news:
         "at an ARF warehouse in Beaverton. Investigation into address leaks are ongoing."
     if emailleak == True:
         "ARF stock plummets following a breach, with hackers exposing trade secrets from attacked accounts."
-    "ARF faces mounting crises, stay tuned for the latest updates."
+    "ARF is going through a rough patch this season, stay tuned for the latest updates."
     return
 # ---------------------------------
 # BONUSES
