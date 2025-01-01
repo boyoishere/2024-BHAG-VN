@@ -112,7 +112,7 @@ define gui.name_ypos = 0
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
-define gui.name_xalign = 0.0
+define gui.name_xalign = 0
 
 ## The width, height, and borders of the box containing the character's name, or
 ## None to automatically size it.
@@ -211,8 +211,8 @@ define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(50, 8, 150, 8)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
-define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#878787'
+define gui.choice_button_text_xalign = 0.6
+define gui.choice_button_text_idle_color = '#f2f2f2'
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#7070707f'
 

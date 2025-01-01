@@ -12,7 +12,7 @@ label start:
     show presenter normal
     show logo
     "[[ARF EXECUTIVES] Welcome to the ARF Security Awareness Training."
-    jump email
+    jump travel
     "This training is essential for understanding the role of confidentiality--"
     "--and secure practices within our operations."
     "Noncompliance could endanger your position, our agents, and the lives we strive to protect."
@@ -64,7 +64,11 @@ label travel:
     show collegue call
     "[[PINT] Zilang, Beaverton station is asking where you assigned Subject D4 to."
     "Please tell me the address now so they can stop stalling the chase. Also where are you?"
+    show zilang talk
+    show collegue wait
     "[[ZILANG] Sorry, I'm on my way. I'll be there in 20."
+    show zilang neutral
+    show collegue call
     "[[PINT] Alright. Can you give me the address?"
     menu travel0:
         "{i}It's probably not a big deal.{/i}":
@@ -76,11 +80,14 @@ label travel:
             hide collegue
             "{i}Pint hangs up.{/i}"
         "Refuse your coworker.":
-            show collegue call
+            show collegue wait
+            show zilang talk
+            "[[ZILANG] (Hesitant) I understand it's urgent--"
+            "but it's against protocol to send information like this over calls."
             show zilang neutral
-            "[[ZILANG] (Hesitant) I understand it's urgent--" "but it's against protocol to send information like this over calls."
             "{i}What a good, responsible employee you are!{/i}"
             "[[PINT] ..."
+            show collegue upset
             "[[PINT] Ok."
             hide collegue
             "{i}Pint hangs up.{/i}"
@@ -119,11 +126,10 @@ label entrance:
         "{i}It's probably not a big deal.{/i}":
             $ n += 1
             show niko neutral
-            show cut cctv with dissolve
+            show cut cctv1 with dissolve
             "{i}You swipe in Niko.{/i}"
-            hide cut cctv with dissolve
+            show cut cctv2
             "{i}Niko thanks you with a curt nod and enters.{/i}"
-            hide niko
         "{i}Refuse your coworker and friend.{/i}":
             show zilang talk
             show niko neutral
@@ -133,7 +139,7 @@ label entrance:
             show zilang neutral
             hide niko
             "{i}Niko leaves to make a call.{/i}"
-    "{i}Good job Zilang! You are such a great employee!{/i}"
+            "{i}Isn't it difficult to navigate professionalism and personal relationships?{/i}"
 # ---------------------------------
 label email:
     scene bg office1 with fade
@@ -149,69 +155,111 @@ label emailcheck:
         "the first email":
             $ view += 1
             show email 1
-            "Why are they sending me the spending report? Hopefully it's not about overspending on snacks again."
+            "Why are they sending me the spending report?"
+            "Hopefully it's not about overspending on snacks again."
             menu email1:
-                "Report it to IT":
-                    "Gallen's profile picture is a bit odd...I'll forward this to IT just in case."
+                "Report to IT":
+                    "Gallen's profile picture is a bit odd...I should forward this to IT just in case."
                     show email
                     jump emailcheck
-                "Close it ":
+                "Close":
                     "(Growl) I'll just ask Niko to help me work on this later."
                     show email
                     jump emailcheck
         "the second email":
             $ view += 1
             show email 2
-            "(Chuckle) I should send this one to Niko."
+            "(Chuckle) I should forward this one to Niko."
             menu email2:
-                "Report it to IT":
+                "Report to IT":
                     "But nice try. Off to IT you go!"
                     show email
                     jump emailcheck
-                "Close it":
-                    "Yeah, I think he'd enjoy this one."
+                "Close":
+                    "I'll show it to him later."
                     show email
                     jump emailcheck
                 "Find love now":
-                    show email virus
+                    show email virus with dissolve
                     "{i}Curiosity killed the dog.{/i}"
-                    show email
-                    jump emailcheck
+                    # show email
+                    jump hotdog
         "the third email":
             $ view += 1
-            "Admin work truly is the most annoying!"
+            show email 3
+            "I've never seen this before, but it seems better than the old lottery system."
             menu email3:
-                "Report it to IT":
-                    "I'm not opening anything sensitive without a green light from IT."
+                "Report to IT":
+                    "\"Mobu\" is a horrible speller. Also, who still uses Yahoo?"
+                    show email
                     jump emailcheck
-                "Close it":
-                    "But I guess I can work on this...tomorrow..."
+                "Close":
+                    "I've got enough on my plate for now."
+                    show email
                     jump emailcheck
 # ---------------------------------
 label spill:
     scene bg warehouse with fade
     show zilang neutral
-    "{i}You enter the warehouse.{/i}"
+    "{i}After a long day in the office, you go to the warehouse for a change of pace.{/i}"
+    hide zilang neutral
+    show spill 1
+    "{i}You almost step into a puddle.{/i}"
+    show zilang neutral
+    "[[ZILANG] What is this?"
+    menu spillmenu:
+        "Investigate alone":
+            "Die."
+        "Report this":
+            "{i}You call your coworker.{/i}"
+            show collegue call
+            "[[]]"
+        "Leave it to dry":
+            "Someone probably spilled their water."
+            jump ending
 # ---------------------------------
 # ENDINGS
 # ---------------------------------
 label ending:
     scene bg apartment night with fade
     show zilang neutral
-    "{i}After a long day of work, you arrive home.{/i}"
+    "{i}At last, you arrive at home. You check the results of today's assessment.{/i}"
     if n >= 4:
-        jump badending
-    elif n >= 1:
-        jump neutralending
+        jump ending3
+    elif n >= 2:
+        jump ending2
     else:
-        jump goodending
-label badending:
-    "{i}Due to your horrible practices, you have been fired.{/i}"
+        jump ending1
+label ending3:
+    show ending 3
+    "{i}You are a very adventurous individual, and ARF wishes you the best with your adventures elsewhere!{/i}"
     return
-label neutralending:
-    "{i}You are ok...{/i}"
+label ending2:
+    show ending 2
+    "{i}You were quite alright. ARF looks forward to your future trainings!{/i}"
     return
-label goodending:
-    show zilang happy
-    "{i}Good job, you are a good employee!{/i}"
+label ending1:
+    show ending 1
+    "{i}Corporate loves you!{/i}"
+    # show zilang happy
+    # hide ending 1
     return
+# ---------------------------------
+# BONUSES
+# ---------------------------------
+label hotdog:
+    show email hotdog
+    menu hotdogmenu:
+        "Hot Dog":
+            jump hotdogmenu
+        "Hot Dog":
+            jump hotdogmenu
+        "Hot Dog":
+            jump hotdogmenu
+        "Send your laptop to IT":
+            "{i}Embarassing.{/i}"
+            jump spill
+label death:
+    scene zilang dead
+    "{i}You inhaled too much fume from that unidentified puddle.{/i}"
+# ---------------------------------
